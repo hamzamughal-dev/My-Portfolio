@@ -83,14 +83,14 @@ export default function Skills() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white px-6 py-12">
+    <div className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32">
       <main className="flex-1 flex flex-col items-center justify-start max-w-6xl mx-auto">
         {/* Animated Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-6xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-pulse pt-32 pb-2"
+          className="text-5xl sm:text-6xl font-extrabold mb-12 text-gradient animate-pulse pt-32 pb-2"
         >
           My Skills
         </motion.h1>
@@ -100,38 +100,66 @@ export default function Skills() {
           {skills.map((skill, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="group bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg flex flex-col items-center justify-center w-full h-64 transition-all duration-500 ease-in-out hover:bg-white/10 cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-effect p-6 rounded-2xl shadow-lg 
+              transition-all duration-500 hover:scale-105 hover:bg-emerald-500/10 cursor-pointer"
               onMouseEnter={() => !isTouch && setHoveredIndex(idx)}
               onMouseLeave={() => handleMouseLeave(idx)}
               onClick={() => handleClick(idx)}
             >
-              {/* Icon with glow on hover */}
-              <div className="mb-4 transition-all duration-700 ease-in-out group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]">
-                {skill.icon}
+              {/* Skill Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-emerald-500/20 rounded-full">
+                  {skill.icon}
+                </div>
               </div>
 
-              <h2 className="text-2xl font-semibold mb-2">{skill.name}</h2>
-              <p className="text-gray-300 mb-2">{skill.level}</p>
+              {/* Skill Name */}
+              <h3 className="text-2xl font-bold text-center mb-2 text-emerald-400">
+                {skill.name}
+              </h3>
+
+              {/* Skill Level */}
+              <p className="text-center text-slate-300 mb-4">
+                {skill.level}
+              </p>
 
               {/* Progress Bar */}
-              <div
-                className={`w-full h-4 bg-gray-800 rounded-full overflow-hidden transition-all duration-500 opacity-0 ${hoveredIndex === idx ? "opacity-100" : ""
-                  }`}
-              >
+              <div className="w-full bg-slate-700/50 rounded-full h-3 mb-2">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700"
-                  style={{ width: `${progress[idx]}%`, transition: "width 0.1s" }}
+                  className="accent-gradient h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: `${progress[idx]}%` }}
                 ></div>
               </div>
-              {hoveredIndex === idx && (
-                <p className="text-gray-300 mt-1">{progress[idx]}%</p>
-              )}
+
+              {/* Percentage */}
+              <p className="text-center text-amber-400 font-semibold">
+                {progress[idx]}%
+              </p>
             </motion.div>
           ))}
         </div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center max-w-4xl mb-8"
+        >
+          <h2 className="text-3xl font-bold mb-6 text-gradient">
+            Continuous Learning & Growth
+          </h2>
+          <p className="text-slate-300 text-lg leading-relaxed">
+            I'm passionate about staying up-to-date with the latest technologies and best practices. 
+            My skill set is constantly evolving as I explore new frameworks, tools, and methodologies 
+            to deliver better solutions and user experiences.
+          </p>
+        </motion.div>
       </main>
       <Footer />
     </div>

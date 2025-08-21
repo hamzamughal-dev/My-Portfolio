@@ -1,6 +1,7 @@
 import './App.css'
 import "./index.css"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 
@@ -9,12 +10,24 @@ import Profile from "./Pages/Profile";
 import Skills from "./Pages/Skills";
 import Projects from "./Pages/Projects";
 
+// ScrollToTop component to handle scroll position on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function AppContent() {
   const location = useLocation();
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
+      <ScrollToTop />
 
       <main className="flex-grow">
         <Routes>

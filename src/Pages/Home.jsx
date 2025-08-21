@@ -45,47 +45,36 @@ export default function Home() {
   }, [titleIndex, typing]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white">
+    <div className="flex flex-col min-h-screen gradient-bg text-white">
       <main className="flex-1 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
 
         {/* Name */}
-        {/* Name with blue theme + subtle letter-by-letter glow */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl pb-4 font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 inline-block whitespace-nowrap">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl pb-4 font-extrabold mb-6 text-gradient inline-block whitespace-nowrap">
           {"Hamza Mughal".split("").map((char, index) => (
             <span
               key={index}
-              className="inline-block transition-all duration-700 hover:glow"
+              className="inline-block transition-all duration-700 hover:animate-glow cursor-pointer"
             >
               {char}
             </span>
           ))}
         </h1>
 
-
-
-        <style>
-          {`
-    /* Subtle glow effect on single letter when hovered */
-    .hover\\:glow:hover {
-      text-shadow: 0 0 4px #60a5fa, 0 0 8px #3b82f6;
-    }
-  `}
-        </style>
-
-
         {/* Smooth Typewriter */}
-        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-300 mt-2 relative inline-block">
+        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300 mt-2 relative inline-block">
           {displayedText}
-          <span className="inline-block w-1 h-[1.2em] bg-white align-bottom animate-[blink_1s_infinite] ml-1"></span>
+          <span className="inline-block w-1 h-[1.2em] bg-emerald-400 align-bottom animate-[blink_1s_infinite] ml-1"></span>
         </p>
 
         {/* Available for Work Button */}
-        <button className="mt-8 px-8 py-3 text-xl font-semibold text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 rounded-full shadow-lg hover:scale-103 hover:shadow-blue-400/20 transition-transform duration-500">
+        <button className="mt-8 px-8 py-3 text-xl font-semibold text-white accent-gradient rounded-full shadow-lg hover:scale-105 hover:shadow-emerald-400/20 transition-all duration-500 animate-float cursor-pointer">
           Available for Work
         </button>
 
-        {/* Decorative underline */}
-        {/* <div className="mt-6 w-32 h-1 rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 animate-pulse"></div> */}
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-emerald-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-amber-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-5 w-16 h-16 bg-emerald-400/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </main>
       <Footer />
 

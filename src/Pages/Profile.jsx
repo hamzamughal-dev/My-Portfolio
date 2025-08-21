@@ -15,13 +15,13 @@ function Profile() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white px-6 py-25">
+    <div className="flex flex-col items-center justify-start min-h-screen gradient-bg text-white px-6 py-25">
       {/* Profile Image */}
       <motion.img
         src={profilePic}
         alt="Profile"
-        className="w-[220px] h-[220px] rounded-full object-cover shadow-lg mb-8 border-4 border-gray-700 
-  transform transition duration-300 hover:scale-105 hover:shadow-blue-500/50"
+        className="w-[220px] h-[220px] rounded-full object-cover shadow-lg mb-8 border-4 border-emerald-500/30 
+  transform transition duration-300 hover:scale-105 hover:shadow-emerald-500/50 cursor-pointer"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -29,7 +29,7 @@ function Profile() {
         onClick={() => handleToggle("profile")}
         style={
           activeIndex === "profile"
-            ? { transform: "scale(1.05)", boxShadow: "0 0 25px rgba(59,130,246,0.5)" }
+            ? { transform: "scale(1.05)", boxShadow: "0 0 25px rgba(16,185,129,0.5)" }
             : {}
         }
       />
@@ -38,8 +38,8 @@ function Profile() {
       <div className="w-full max-w-5xl space-y-8">
         {/* Bachelors */}
         <motion.div
-          className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg 
-        transition duration-300 hover:bg-white/10 hover:scale-[1.02]"
+          className="glass-effect p-6 rounded-2xl shadow-lg 
+        transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -47,27 +47,27 @@ function Profile() {
           onClick={() => handleToggle("bachelors")}
           style={
             activeIndex === "bachelors"
-              ? { transform: "scale(1.02)", background: "rgba(255,255,255,0.1)" }
+              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
               : {}
           }
         >
           <div className="text-4xl font-semibold mb-2 flex items-center">
-            <GraduationCap size={60} className="inline mr-2 text-blue-400" />
+            <GraduationCap size={60} className="inline mr-2 text-emerald-400" />
             Bachelor in Computer Science
           </div>
-          <p className="text-gray-300 pt-2 pb-2">
+          <p className="text-slate-300 pt-2 pb-2">
             Punjab University College Of Information and Technology
           </p>
 
           <div className="flex items-center mb-2 pt-2">
-            <Calendar className="inline mr-2 text-blue-400" />
-            <p className="text-gray-300">2022-2026 (Ongoing)</p>
+            <Calendar className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300">2022-2026 (Ongoing)</p>
           </div>
           <div className="flex pt-2">
-            <MapPin className="inline mr-2 text-blue-400" />
-            <p className="text-gray-300 mb-2"> Lahore, Pakistan</p>
+            <MapPin className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
           </div>
-          <h2 className="text-gray-300 text-1xl mt-1 mb-3">
+          <h2 className="text-slate-300 text-1xl mt-1 mb-3">
             Currently pursuing a comprehensive degree in Computer Science with focus on software development, algorithms, data structures, and modern web technologies.
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -79,17 +79,17 @@ function Profile() {
             ].map((point, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 bg-gray-800/40 p-2 rounded-lg 
-                transition duration-300 hover:bg-gray-700/60 hover:scale-104"
+                className="flex items-start gap-3 bg-emerald-500/20 p-2 rounded-lg 
+                transition duration-300 hover:bg-emerald-500/30 hover:scale-104 cursor-pointer"
                 onClick={() => handleToggle("bachelors-" + idx)}
                 style={
                   activeIndex === "bachelors-" + idx
-                    ? { transform: "scale(1.04)", background: "rgba(55,65,81,0.6)" }
+                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
                     : {}
                 }
               >
-                <BookOpen className="w-5 h-5 text-green-400 mt-1" />
-                <p className="text-gray-200">{point}</p>
+                <BookOpen className="w-5 h-5 text-amber-400 mt-1" />
+                <p className="text-slate-200">{point}</p>
               </div>
             ))}
           </div>
@@ -97,8 +97,8 @@ function Profile() {
 
         {/* Intermediate */}
         <motion.div
-          className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg 
-        transition duration-300 hover:bg-white/10 hover:scale-[1.02]"
+          className="glass-effect p-6 rounded-2xl shadow-lg 
+        transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -106,48 +106,108 @@ function Profile() {
           onClick={() => handleToggle("intermediate")}
           style={
             activeIndex === "intermediate"
-              ? { transform: "scale(1.02)", background: "rgba(255,255,255,0.1)" }
+              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
               : {}
           }
         >
-          <h2 className="text-4xl font-semibold mb-2 flex items-center">
-            <GraduationCap size={60} className="inline mr-2 text-blue-400" />
-            Intermediate in FSc Pre-Engineering
-          </h2>
-          <div className="flex items-center mb-2">
-            <p className="text-gray-300">Government College University (GCU)</p>
+          <div className="text-4xl font-semibold mb-2 flex items-center">
+            <GraduationCap size={60} className="inline mr-2 text-emerald-400" />
+            Intermediate in Computer Science
           </div>
+          <p className="text-slate-300 pt-2 pb-2">
+            Punjab College
+          </p>
+
           <div className="flex items-center mb-2 pt-2">
-            <Calendar className="inline mr-2 text-blue-400" />
-            <p className="text-gray-300">2019-2021</p>
+            <Calendar className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300">2020-2022</p>
           </div>
           <div className="flex pt-2">
-            <MapPin className="inline mr-2 text-blue-400" />
-            <p className="text-gray-300 mb-2"> Lahore, Pakistan</p>
+            <MapPin className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
           </div>
-          <h2 className="text-gray-300 mt-1 mb-3">
-            Completed intermediate-level studies in the Faculty of Science with a focus on foundational subjects including Mathematics, Physics, and Chemistry. Built a strong academic base for further education in the field of Computer Science.
+          <h2 className="text-slate-300 text-1xl mt-1 mb-3">
+            Completed intermediate studies with a focus on Computer Science, laying the foundation for advanced programming concepts and problem-solving skills.
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
-              "Scored 98% marks overall",
-              "Relevant Subjects: Mathematics, Physics, Chemistry",
-              "Consistently maintained excellent academic performance",
-              "Active participation in science exhibitions and inter-college competitions",
+              "Computer Science specialization with programming fundamentals",
+              "Strong foundation in mathematics and logical thinking",
+              "Participated in science exhibitions and competitions",
+              "Developed basic programming skills in C++ and Python",
             ].map((point, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 bg-gray-800/40 p-2 rounded-lg 
-                transition duration-300 hover:bg-gray-700/60 hover:scale-104"
+                className="flex items-start gap-3 bg-emerald-500/20 p-2 rounded-lg 
+                transition duration-300 hover:bg-emerald-500/30 hover:scale-104 cursor-pointer"
                 onClick={() => handleToggle("intermediate-" + idx)}
                 style={
                   activeIndex === "intermediate-" + idx
-                    ? { transform: "scale(1.04)", background: "rgba(55,65,81,0.6)" }
+                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
                     : {}
                 }
               >
-                <BookOpen className="w-5 h-5 text-green-400 mt-1" />
-                <p className="text-gray-200">{point}</p>
+                <BookOpen className="w-5 h-5 text-amber-400 mt-1" />
+                <p className="text-slate-200">{point}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Matric */}
+        <motion.div
+          className="glass-effect p-6 rounded-2xl shadow-lg 
+        transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          onClick={() => handleToggle("matric")}
+          style={
+            activeIndex === "matric"
+              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
+              : {}
+          }
+        >
+          <div className="text-4xl font-semibold mb-2 flex items-center">
+            <GraduationCap size={60} className="inline mr-2 text-emerald-400" />
+            Matriculation in Science
+          </div>
+          <p className="text-slate-300 pt-2 pb-2">
+            Allied School
+          </p>
+
+          <div className="flex items-center mb-2 pt-2">
+            <Calendar className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300">2018-2020</p>
+          </div>
+          <div className="flex pt-2">
+            <MapPin className="inline mr-2 text-emerald-400" />
+            <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
+          </div>
+          <h2 className="text-slate-300 text-1xl mt-1 mb-3">
+            Completed matriculation with science group, developing strong analytical and problem-solving skills that would later support my programming journey.
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {[
+              "Science group with mathematics and physics focus",
+              "Developed analytical thinking and problem-solving skills",
+              "Active participation in academic competitions",
+              "Strong foundation in logical reasoning and mathematics",
+            ].map((point, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3 bg-emerald-500/20 p-2 rounded-lg 
+                transition duration-300 hover:bg-emerald-500/30 hover:scale-104 cursor-pointer"
+                onClick={() => handleToggle("matric-" + idx)}
+                style={
+                  activeIndex === "matric-" + idx
+                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
+                    : {}
+                }
+              >
+                <BookOpen className="w-5 h-5 text-amber-400 mt-1" />
+                <p className="text-slate-200">{point}</p>
               </div>
             ))}
           </div>
