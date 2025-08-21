@@ -179,7 +179,7 @@ function Profile() {
 
           <div className="flex items-center mb-2 pt-2">
             <Calendar className="inline mr-2 text-emerald-400" />
-            <p className="text-slate-300">2018-2020</p>
+            <p className="text-slate-300">2017-2019</p>
           </div>
           <div className="flex pt-2">
             <MapPin className="inline mr-2 text-emerald-400" />
