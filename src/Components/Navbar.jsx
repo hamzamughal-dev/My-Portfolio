@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Menu, X, Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
+import CV from "../assets/Docs/Muhammad_Hamza-Mughal_CV.pdf"
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,6 @@ function Navbar() {
         { name: "Profile", path: "/profile" },
         { name: "Skills", path: "/skills" },
         { name: "Projects", path: "/projects" },
-        { name: "Contact", path: "/contact" },
     ];
 
     return (
@@ -56,8 +56,8 @@ function Navbar() {
 
                 {/* Resume Button */}
                 <motion.a
-                    href="/resume.pdf"
-                    download
+                    href={CV}
+                    download="Hamza_Mughal_CV.pdf"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1, duration: 0.4 }}
@@ -94,8 +94,8 @@ function Navbar() {
                     ))}
 
                     <a
-                        href="/resume.pdf"
-                        download
+                        href={CV}
+                        download="Hamza_Mughal_CV.pdf"
                         className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-200"
                     >
                         Download CV

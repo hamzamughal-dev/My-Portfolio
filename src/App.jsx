@@ -8,7 +8,6 @@ import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Skills from "./Pages/Skills";
 import Projects from "./Pages/Projects";
-import Contact from "./Pages/Contact";
 
 function AppContent() {
   const location = useLocation();
@@ -23,7 +22,6 @@ function AppContent() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 

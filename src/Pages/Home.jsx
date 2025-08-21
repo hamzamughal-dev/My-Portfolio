@@ -50,7 +50,7 @@ export default function Home() {
 
         {/* Name */}
         {/* Name with blue theme + subtle letter-by-letter glow */}
-        <h1 className="text-6xl pb-4 sm:text-7xl md:text-8xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 inline-block">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl pb-4 font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 inline-block whitespace-nowrap">
           {"Hamza Mughal".split("").map((char, index) => (
             <span
               key={index}
@@ -60,6 +60,8 @@ export default function Home() {
             </span>
           ))}
         </h1>
+
+
 
         <style>
           {`

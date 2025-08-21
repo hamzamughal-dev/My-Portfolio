@@ -5,8 +5,16 @@ function Footer() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Trigger animation after mount
-        setTimeout(() => setIsVisible(true), 100);
+        const alreadyAnimated = localStorage.getItem("footerAnimated");
+
+        if (!alreadyAnimated) {
+            // First visit → play animation
+            setTimeout(() => setIsVisible(true), 100);
+            localStorage.setItem("footerAnimated", "true");
+        } else {
+            // Skip animation for next visits
+            setIsVisible(true);
+        }
     }, []);
 
     return (
@@ -20,7 +28,7 @@ function Footer() {
                             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
                 <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/hamzamughal-dev"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-gray-300"
@@ -28,7 +36,7 @@ function Footer() {
                     <FaGithub className="text-3xl sm:text-4xl" />
                 </a>
                 <a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://linkedin.com/in/muhammad-hamza-mughal-b83944377"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-blue-400"
@@ -36,7 +44,7 @@ function Footer() {
                     <FaLinkedin className="text-3xl sm:text-4xl" />
                 </a>
                 <a
-                    href="https://instagram.com/yourusername"
+                    href="https://instagram.com/muhamadhamzamughal"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-pink-500"
@@ -44,11 +52,14 @@ function Footer() {
                     <FaInstagram className="text-3xl sm:text-4xl" />
                 </a>
                 <a
-                    href="mailto:youremail@example.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=muhammadhamzamughal1053@gmail.com"
+                    target="_blank"
+                    rel="noreferrer noopener"
                     className="transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-red-400"
                 >
                     <FaEnvelope className="text-3xl sm:text-4xl" />
                 </a>
+
             </div>
         </footer>
     );
