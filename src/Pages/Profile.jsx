@@ -115,7 +115,7 @@ function Profile() {
             Intermediate in Computer Science
           </div>
           <p className="text-slate-300 pt-2 pb-2">
-            Punjab College
+            Government College University, Lahore
           </p>
 
           <div className="flex items-center mb-2 pt-2">
@@ -174,7 +174,7 @@ function Profile() {
             Matriculation in Science
           </div>
           <p className="text-slate-300 pt-2 pb-2">
-            Allied School
+            Moon Public Schools
           </p>
 
           <div className="flex items-center mb-2 pt-2">
