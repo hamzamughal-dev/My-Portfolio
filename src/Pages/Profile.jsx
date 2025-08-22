@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import profilePic from "../assets/images/img.jpg"; // replace with your image path
 import { Calendar, MapPin, GraduationCap, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 function Profile() {
   const [activeIndex, setActiveIndex] = useState(null);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // detects mobile
   const isMobile = window.innerWidth < 768;

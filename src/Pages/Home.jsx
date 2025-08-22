@@ -80,12 +80,34 @@ export default function Home() {
 
       <style>
         {`
-          @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
-          }
-        `}
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    /* Smooth glow */
+    @keyframes glow {
+      0% {
+        text-shadow:
+          0 0 5px rgba(52, 211, 153, 0.5),
+          0 0 10px rgba(52, 211, 153, 0.4),
+          0 0 15px rgba(52, 211, 153, 0.3);
+      }
+      100% {
+        text-shadow:
+          0 0 10px rgba(52, 211, 153, 0.8),
+          0 0 20px rgba(52, 211, 153, 0.6),
+          0 0 30px rgba(52, 211, 153, 0.5);
+      }
+    }
+
+    /* Apply only while hovering */
+    .hover\\:animate-glow:hover {
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+  `}
       </style>
+
     </div>
   );
 }

@@ -90,10 +90,13 @@ export default function Skills() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-6xl font-extrabold mb-12 text-gradient animate-pulse pt-32 pb-2"
+          className="relative text-5xl sm:text-6xl font-extrabold mb-12 text-gradient pt-32 pb-3 tracking-wide"
         >
           My Skills
+          {/* Glowing underline */}
+          {/* <span className="absolute left-1/2  -bottom-3 w-40 h-1 bg-emerald-400 rounded-full -translate-x-1/2 shadow-[0_0_15px_#34d399]"></span> */}
         </motion.h1>
+
 
         {/* Animated Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full">
@@ -155,8 +158,8 @@ export default function Skills() {
             Continuous Learning & Growth
           </h2>
           <p className="text-slate-300 text-lg leading-relaxed">
-            I'm passionate about staying up-to-date with the latest technologies and best practices. 
-            My skill set is constantly evolving as I explore new frameworks, tools, and methodologies 
+            I'm passionate about staying up-to-date with the latest technologies and best practices.
+            My skill set is constantly evolving as I explore new frameworks, tools, and methodologies
             to deliver better solutions and user experiences.
           </p>
         </motion.div>

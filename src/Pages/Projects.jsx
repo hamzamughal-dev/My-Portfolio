@@ -92,8 +92,8 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 50,
     scale: 0.9
   },
@@ -109,8 +109,8 @@ const itemVariants = {
 };
 
 const headingVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: -50,
     scale: 0.8
   },
@@ -126,8 +126,8 @@ const headingVariants = {
 };
 
 const descriptionVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 30,
     scale: 0.95
   },
@@ -147,17 +147,20 @@ function Projects() {
   return (
     <div className="min-h-screen gradient-bg text-white px-6 py-16 pb-32">
       {/* Animated Heading */}
-      <motion.h2 
+      <motion.h2
         variants={headingVariants}
         initial="hidden"
         animate="visible"
-        className="text-5xl flex justify-center items-center sm:text-6xl font-extrabold mb-6 text-gradient animate-pulse pt-20 pb-4"
+        className="relative text-5xl flex justify-center items-center sm:text-6xl font-extrabold mb-6 text-gradient pt-20 pb-4 tracking-wide"
       >
         My Projects
+        {/* Glowing underline */}
+        {/* <span className="absolute left-1/2 -bottom-3 w-50 h-1 bg-emerald-400 rounded-full -translate-x-1/2 shadow-[0_0_15px_#34d399]"></span> */}
       </motion.h2>
 
+
       {/* Animated Description */}
-      <motion.p 
+      <motion.p
         variants={descriptionVariants}
         initial="hidden"
         animate="visible"
@@ -168,7 +171,7 @@ function Projects() {
       </motion.p>
 
       {/* Animated Projects Grid */}
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -178,15 +181,15 @@ function Projects() {
           <motion.div
             key={idx}
             variants={itemVariants}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            whileInView={{ 
-              opacity: 1, 
+            whileInView={{
+              opacity: 1,
               y: 0,
               scale: 1,
-              transition: { 
+              transition: {
                 duration: 0.6,
                 delay: idx * 0.1,
                 ease: [0.6, -0.05, 0.01, 0.99]
