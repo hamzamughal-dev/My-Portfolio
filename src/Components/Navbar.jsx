@@ -1,13 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X, Download, ExternalLink, ChevronDown } from "lucide-react";
+import { Menu, X, Download, Sparkles } from "lucide-react";
 import CV from "../assets/Docs/Muhammad_Hamza-Mughal_CV.pdf";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
     const location = useLocation();
 
     const navLinks = [
@@ -36,160 +35,170 @@ function Navbar() {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-                isScrolled
-                    ? "glass-effect shadow-2xl border-b border-emerald-500/20"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${isScrolled
+                    ? "glass-effect shadow-2xl border-b border-emerald-500/10 backdrop-blur-xl"
                     : "bg-transparent"
-            }`}
+                }`}
         >
-            {/* Premium gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-amber-600/5 to-emerald-600/10"></div>
+            {/* Subtle animated background pattern */}
+            <motion.div
+                className="absolute inset-0 opacity-30"
+                animate={{
+                    background: isScrolled
+                        ? "radial-gradient(ellipse at center, rgba(16, 185, 129, 0.03) 0%, transparent 70%)"
+                        : "transparent"
+                }}
+                transition={{ duration: 0.7 }}
+            />
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16 lg:h-20">
-                    {/* Premium Logo */}
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+                <div className="flex justify-between items-center h-20">
+                    {/* Refined Logo */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="flex items-center space-x-3"
+                        transition={{ delay: 0.2, duration: 0.8 }}
+                        className="flex items-center space-x-4 group cursor-pointer"
                     >
-                        <motion.div 
-                            className="relative w-12 h-12 lg:w-14 lg:h-14 accent-gradient rounded-2xl flex items-center justify-center shadow-lg cursor-pointer"
-                            whileHover={{ scale: 1.05, rotate: 5 }}
-                            whileTap={{ scale: 0.95 }}
-                            onHoverStart={() => setIsHovered(true)}
-                            onHoverEnd={() => setIsHovered(false)}
+                        <motion.div
+                            className="relative"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <span className="text-white font-bold text-xl lg:text-2xl">H</span>
+                            <div className="w-11 h-11 bg-gradient-to-br from-emerald-500 via-emerald-600 to-amber-500 rounded-xl flex items-center justify-center shadow-lg ring-1 ring-white/10">
+                                <span className="text-white font-bold text-lg tracking-wider">H</span>
+                            </div>
                             <motion.div
-                                className="absolute inset-0 rounded-2xl border-2 border-emerald-400/50"
-                                animate={{
-                                    scale: isHovered ? 1.1 : 1,
-                                    opacity: isHovered ? 0.8 : 0,
-                                }}
-                                transition={{ duration: 0.3 }}
+                                className="absolute -inset-0.5 bg-gradient-to-br from-emerald-400 to-amber-400 rounded-xl opacity-0 group-hover:opacity-20 blur-sm"
+                                animate={{ scale: [1, 1.05, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             />
                         </motion.div>
-                        <div className="hidden sm:block">
-                            <h1 className="text-xl lg:text-2xl font-bold text-gradient">
+                        <div>
+                            <motion.h1
+                                className="text-2xl font-bold bg-gradient-to-r from-white via-emerald-100 to-white bg-clip-text text-transparent"
+                                whileHover={{ scale: 1.02 }}
+                            >
                                 Hamza Mughal
-                            </h1>
-                            <p className="text-xs text-slate-400 -mt-1">Portfolio</p>
+                            </motion.h1>
+                            <motion.p
+                                className="text-xs text-slate-400 tracking-wide font-medium"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                            >
+                                Full-Stack Developer
+                            </motion.p>
                         </div>
                     </motion.div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center space-x-2">
-                        {navLinks.map((link, i) => {
-                            const isActive = location.pathname === link.path;
-                            return (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 + (i * 0.1), duration: 0.5 }}
-                                    className="relative"
-                                >
-                                    <Link
-                                        to={link.path}
-                                        className={`relative px-6 py-3 text-slate-300 hover:text-white font-medium transition-all duration-300 group rounded-xl cursor-pointer ${
-                                            isActive ? "text-emerald-400" : ""
-                                        }`}
+                    {/* Premium Desktop Navigation */}
+                    <div className="hidden lg:flex items-center">
+                        <div className="flex items-center space-x-1 p-1 rounded-2xl bg-slate-900/30 backdrop-blur-sm border border-slate-700/20">
+                            {navLinks.map((link, i) => {
+                                const isActive = location.pathname === link.path;
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
+                                        className="relative"
                                     >
-                                        <span className="relative z-10">{link.name}</span>
-                                        
-                                        {/* Hover background */}
-                                        <motion.div 
-                                            className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-amber-500/20 rounded-xl opacity-0 group-hover:opacity-100"
-                                            initial={{ scale: 0.8, opacity: 0 }}
-                                            whileHover={{ scale: 1, opacity: 1 }}
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                        
-                                        {/* Active indicator */}
-                                        {isActive && (
-                                            <motion.div
-                                                className="absolute bottom-0 left-1/2 w-0 h-1 accent-gradient rounded-full"
-                                                initial={{ width: 0 }}
-                                                animate={{ width: "80%" }}
-                                                transition={{ duration: 0.5, delay: 0.2 }}
-                                                style={{ transform: "translateX(-50%)" }}
-                                            />
-                                        )}
-                                        
-                                        {/* Hover underline */}
-                                        <motion.div 
-                                            className="absolute bottom-0 left-1/2 w-0 h-0.5 accent-gradient group-hover:w-full group-hover:left-0 transition-all duration-300"
-                                            initial={{ width: 0 }}
-                                            whileHover={{ width: "100%", left: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                    </Link>
-                                </motion.div>
-                            );
-                        })}
+                                        <Link
+                                            to={link.path}
+                                            className="relative block px-6 py-3 text-sm font-medium transition-all duration-300 rounded-xl group"
+                                        >
+                                            <span className={`relative z-10 transition-colors duration-300 ${isActive
+                                                    ? "text-emerald-400"
+                                                    : "text-slate-300 group-hover:text-white"
+                                                }`}>
+                                                {link.name}
+                                            </span>
+
+                                            {/* Active state background */}
+                                            {isActive && (
+                                                <motion.div
+                                                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-amber-500/20 rounded-xl border border-emerald-500/20"
+                                                    layoutId="activeTab"
+                                                    initial={{ opacity: 0, scale: 0.8 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 400,
+                                                        damping: 30
+                                                    }}
+                                                />
+                                            )}
+
+                                            {/* Hover background */}
+                                            {!isActive && (
+                                                <motion.div
+                                                    className="absolute inset-0 bg-slate-700/40 rounded-xl opacity-0 group-hover:opacity-100"
+                                                    initial={{ scale: 0.8 }}
+                                                    whileHover={{ scale: 1 }}
+                                                    transition={{ duration: 0.2 }}
+                                                />
+                                            )}
+                                        </Link>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
                     </div>
 
-                    {/* Premium CTA Buttons */}
-                    <div className="hidden lg:flex items-center space-x-4">
+                    {/* Enhanced CTA Button */}
+                    <div className="hidden lg:flex items-center">
                         <motion.a
                             href={CV}
                             download="Hamza_Mughal_CV.pdf"
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.8, duration: 0.5 }}
-                            className="group relative flex items-center space-x-2 px-6 py-3 accent-gradient text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden cursor-pointer"
+                            transition={{ delay: 0.8, duration: 0.6 }}
+                            className="group relative"
                         >
-                            <span className="relative z-10 flex items-center space-x-2">
-                                <Download size={16} />
-                                <span>Download CV</span>
-                            </span>
-                            <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-amber-600 opacity-0 group-hover:opacity-100"
-                                initial={{ x: "-100%" }}
-                                whileHover={{ x: 0 }}
-                                transition={{ duration: 0.3 }}
-                            />
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 rounded-xl opacity-70 group-hover:opacity-100 blur transition duration-300" />
+                            <div className="relative flex items-center space-x-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-semibold transition-all duration-300 group-hover:bg-slate-800">
+                                <Download size={16} className="group-hover:scale-110 transition-transform duration-200" />
+                                <span className="tracking-wide">Download CV</span>
+                                <Sparkles size={14} className="opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
                         </motion.a>
                     </div>
 
-                    {/* Mobile Menu Button */}
+                    {/* Elegant Mobile Menu Button */}
                     <motion.button
                         initial={{ opacity: 0, rotate: -90 }}
                         animate={{ opacity: 1, rotate: 0 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                         onClick={() => setIsOpen(!isOpen)}
-                        className="lg:hidden relative p-3 rounded-xl glass-effect hover:bg-emerald-500/20 transition-all duration-300 group cursor-pointer"
+                        className="lg:hidden relative p-3 rounded-xl bg-slate-800/40 backdrop-blur-sm border border-slate-700/30 hover:bg-slate-700/50 transition-all duration-300"
                     >
                         <motion.div
                             animate={{ rotate: isOpen ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
-                            className="relative z-10"
                         >
-                            {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+                            {isOpen ? (
+                                <X size={22} className="text-white" />
+                            ) : (
+                                <Menu size={22} className="text-white" />
+                            )}
                         </motion.div>
-                        <motion.div
-                            className="absolute inset-0 bg-emerald-500/20 rounded-xl opacity-0 group-hover:opacity-100"
-                            initial={{ scale: 0.8 }}
-                            whileHover={{ scale: 1 }}
-                            transition={{ duration: 0.2 }}
-                        />
                     </motion.button>
                 </div>
             </div>
 
-            {/* Premium Mobile Menu */}
+            {/* Refined Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="lg:hidden overflow-hidden glass-effect border-t border-emerald-500/20"
+                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        className="lg:hidden overflow-hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-700/20"
                     >
-                        <div className="px-4 py-6 space-y-2">
+                        <div className="px-6 py-8 space-y-2">
                             {navLinks.map((link, i) => {
                                 const isActive = location.pathname === link.path;
                                 return (
@@ -198,48 +207,50 @@ function Navbar() {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -20 }}
-                                        transition={{ delay: i * 0.1, duration: 0.3 }}
+                                        transition={{ delay: i * 0.1, duration: 0.4 }}
                                     >
                                         <Link
                                             to={link.path}
                                             onClick={() => setIsOpen(false)}
-                                            className={`block px-4 py-4 text-slate-300 hover:text-white hover:bg-emerald-500/20 rounded-xl transition-all duration-300 border border-transparent hover:border-emerald-500/30 cursor-pointer ${
-                                                isActive ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" : ""
-                                            }`}
+                                            className={`group flex items-center justify-between px-4 py-4 rounded-xl transition-all duration-300 ${isActive
+                                                    ? "bg-gradient-to-r from-emerald-500/20 to-amber-500/20 text-emerald-400 border border-emerald-500/30"
+                                                    : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                                                }`}
                                         >
-                                            <div className="flex items-center justify-between">
-                                                <span className="font-medium">{link.name}</span>
-                                                {isActive && (
-                                                    <motion.div
-                                                        className="w-2 h-2 bg-emerald-400 rounded-full"
-                                                        initial={{ scale: 0 }}
-                                                        animate={{ scale: 1 }}
-                                                        transition={{ delay: 0.2 }}
-                                                    />
-                                                )}
-                                            </div>
+                                            <span className="font-medium text-lg tracking-wide">{link.name}</span>
+                                            {isActive && (
+                                                <motion.div
+                                                    className="w-2 h-2 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/50"
+                                                    initial={{ scale: 0, opacity: 0 }}
+                                                    animate={{ scale: 1, opacity: 1 }}
+                                                    transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
+                                                />
+                                            )}
                                         </Link>
                                     </motion.div>
                                 );
                             })}
 
-                            {/* Mobile CTA Buttons */}
-                            <motion.div 
-                                className="pt-4 space-y-3 border-t border-emerald-500/20"
+                            {/* Mobile CTA */}
+                            <motion.div
+                                className="pt-6 border-t border-slate-700/30 mt-6"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 20 }}
-                                transition={{ delay: 0.4, duration: 0.3 }}
+                                transition={{ delay: 0.4, duration: 0.4 }}
                             >
                                 <motion.a
                                     href={CV}
                                     download="Hamza_Mughal_CV.pdf"
-                                    className="flex items-center justify-center space-x-2 w-full px-4 py-4 accent-gradient text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                                    whileHover={{ scale: 1.02 }}
+                                    className="group relative block"
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    <Download size={18} />
-                                    <span>Download CV</span>
+                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 rounded-xl opacity-70 group-active:opacity-90 blur transition duration-200" />
+                                    <div className="relative flex items-center justify-center space-x-3 w-full px-6 py-4 bg-slate-900 text-white rounded-xl font-semibold transition-all duration-200">
+                                        <Download size={20} />
+                                        <span className="text-lg tracking-wide">Download CV</span>
+                                        <Sparkles size={16} className="opacity-70" />
+                                    </div>
                                 </motion.a>
                             </motion.div>
                         </div>
