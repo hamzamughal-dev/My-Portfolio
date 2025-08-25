@@ -20,7 +20,9 @@ function Profile() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen gradient-bg text-white px-6 py-25">
+    <div
+    key="profile-container"
+    className="flex flex-col items-center justify-start min-h-screen gradient-bg text-white px-6 py-25">
       {/* Profile Image */}
       <motion.img
         src={profilePic}

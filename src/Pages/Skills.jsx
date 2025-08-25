@@ -83,7 +83,9 @@ export default function Skills() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32">
+    <div
+    key="skills-container"
+    className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32">
       <main className="flex-1 flex flex-col items-center justify-start max-w-6xl mx-auto">
         {/* Animated Heading */}
         <motion.h1

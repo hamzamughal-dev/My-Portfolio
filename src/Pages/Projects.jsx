@@ -172,6 +172,7 @@ function Projects() {
 
       {/* Animated Projects Grid */}
       <motion.div
+        key="projects-container"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
