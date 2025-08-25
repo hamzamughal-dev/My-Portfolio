@@ -154,10 +154,7 @@ function Projects() {
         className="relative text-5xl flex justify-center items-center sm:text-6xl font-extrabold mb-6 text-gradient pt-20 pb-4 tracking-wide"
       >
         My Projects
-        {/* Glowing underline */}
-        {/* <span className="absolute left-1/2 -bottom-3 w-50 h-1 bg-emerald-400 rounded-full -translate-x-1/2 shadow-[0_0_15px_#34d399]"></span> */}
       </motion.h2>
-
 
       {/* Animated Description */}
       <motion.p
@@ -196,7 +193,7 @@ function Projects() {
                 ease: [0.6, -0.05, 0.01, 0.99]
               }
             }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }} 
             className="transform transition-all duration-500"
           >
             <ProjectCard {...project} />

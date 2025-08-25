@@ -32,7 +32,7 @@ function Profile() {
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, margin: "-100px" }}
         onClick={() => handleToggle("profile")}
         style={
           activeIndex === "profile"
@@ -50,7 +50,7 @@ function Profile() {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("bachelors")}
           style={
             activeIndex === "bachelors"
@@ -109,7 +109,7 @@ function Profile() {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("intermediate")}
           style={
             activeIndex === "intermediate"
@@ -168,7 +168,7 @@ function Profile() {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("matric")}
           style={
             activeIndex === "matric"

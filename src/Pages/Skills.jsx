@@ -108,7 +108,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px"  }}
               className="glass-effect p-6 rounded-2xl shadow-lg 
               transition-all duration-500 hover:scale-105 hover:bg-emerald-500/10 cursor-pointer"
               onMouseEnter={() => !isTouch && setHoveredIndex(idx)}
@@ -153,7 +153,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: "-100px" }}
           className="mt-16 text-center max-w-4xl mb-8"
         >
           <h2 className="text-3xl font-bold mb-6 text-gradient">
