@@ -151,6 +151,8 @@ function Projects() {
         variants={headingVariants}
         initial="hidden"
         animate="visible"
+        whileInView="visible"
+        viewport={{ once: false}}
         className="relative text-5xl flex justify-center items-center sm:text-6xl font-extrabold mb-6 text-gradient pt-20 pb-4 tracking-wide"
       >
         My Projects
@@ -160,7 +162,9 @@ function Projects() {
       <motion.p
         variants={descriptionVariants}
         initial="hidden"
+        whileInView="visible"
         animate="visible"
+        viewport={{ once: false}}
         className="text-slate-300 text-center max-w-2xl mx-auto mb-14 text-lg"
       >
         A showcase of my development skills and techniques. These projects
@@ -173,6 +177,7 @@ function Projects() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        viewport={{ once: false, margin: "-100px" }}
         className="grid grid-cols-1 gap-10 max-w-6xl mx-auto"
       >
         {projects.map((project, idx) => (

@@ -21,8 +21,9 @@ function Profile() {
 
   return (
     <div
-    key="profile-container"
-    className="flex flex-col items-center justify-start min-h-screen gradient-bg text-white px-6 py-25">
+      key="profile-container"
+      className="flex flex-col items-center justify-start min-h-screen gradient-bg text-white px-6 py-25"
+    >
       {/* Profile Image */}
       <motion.img
         src={profilePic}
@@ -30,13 +31,17 @@ function Profile() {
         className="w-[220px] h-[220px] rounded-full object-cover shadow-lg mb-8 border-4 border-emerald-500/30 
   transform transition duration-300 hover:scale-105 hover:shadow-emerald-500/50 cursor-pointer"
         initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}               // 👈 ensures mount animation
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, margin: "-100px" }}
         onClick={() => handleToggle("profile")}
         style={
           activeIndex === "profile"
-            ? { transform: "scale(1.05)", boxShadow: "0 0 25px rgba(16,185,129,0.5)" }
+            ? {
+                transform: "scale(1.05)",
+                boxShadow: "0 0 25px rgba(16,185,129,0.5)",
+              }
             : {}
         }
       />
@@ -48,13 +53,17 @@ function Profile() {
           className="glass-effect p-6 rounded-2xl shadow-lg 
         transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}              // 👈 added
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("bachelors")}
           style={
             activeIndex === "bachelors"
-              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
+              ? {
+                  transform: "scale(1.02)",
+                  background: "rgba(16,185,129,0.1)",
+                }
               : {}
           }
         >
@@ -75,7 +84,9 @@ function Profile() {
             <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
           </div>
           <h2 className="text-slate-300 text-1xl mt-1 mb-3">
-            Currently pursuing a comprehensive degree in Computer Science with focus on software development, algorithms, data structures, and modern web technologies.
+            Currently pursuing a comprehensive degree in Computer Science with
+            focus on software development, algorithms, data structures, and
+            modern web technologies.
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
@@ -91,7 +102,10 @@ function Profile() {
                 onClick={() => handleToggle("bachelors-" + idx)}
                 style={
                   activeIndex === "bachelors-" + idx
-                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
+                    ? {
+                        transform: "scale(1.04)",
+                        background: "rgba(16,185,129,0.3)",
+                      }
                     : {}
                 }
               >
@@ -107,13 +121,17 @@ function Profile() {
           className="glass-effect p-6 rounded-2xl shadow-lg 
         transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}              // 👈 added
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("intermediate")}
           style={
             activeIndex === "intermediate"
-              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
+              ? {
+                  transform: "scale(1.02)",
+                  background: "rgba(16,185,129,0.1)",
+                }
               : {}
           }
         >
@@ -134,7 +152,9 @@ function Profile() {
             <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
           </div>
           <h2 className="text-slate-300 text-1xl mt-1 mb-3">
-            Completed intermediate studies with a focus on Computer Science, laying the foundation for advanced programming concepts and problem-solving skills.
+            Completed intermediate studies with a focus on Computer Science,
+            laying the foundation for advanced programming concepts and
+            problem-solving skills.
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
@@ -150,7 +170,10 @@ function Profile() {
                 onClick={() => handleToggle("intermediate-" + idx)}
                 style={
                   activeIndex === "intermediate-" + idx
-                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
+                    ? {
+                        transform: "scale(1.04)",
+                        background: "rgba(16,185,129,0.3)",
+                      }
                     : {}
                 }
               >
@@ -166,13 +189,17 @@ function Profile() {
           className="glass-effect p-6 rounded-2xl shadow-lg 
         transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}              // 👈 added
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: false, margin: "-100px" }}
           onClick={() => handleToggle("matric")}
           style={
             activeIndex === "matric"
-              ? { transform: "scale(1.02)", background: "rgba(16,185,129,0.1)" }
+              ? {
+                  transform: "scale(1.02)",
+                  background: "rgba(16,185,129,0.1)",
+                }
               : {}
           }
         >
@@ -180,9 +207,7 @@ function Profile() {
             <GraduationCap size={60} className="inline mr-2 text-emerald-400" />
             Matriculation in Science
           </div>
-          <p className="text-slate-300 pt-2 pb-2">
-            Moon Public Schools
-          </p>
+          <p className="text-slate-300 pt-2 pb-2">Moon Public Schools</p>
 
           <div className="flex items-center mb-2 pt-2">
             <Calendar className="inline mr-2 text-emerald-400" />
@@ -193,7 +218,9 @@ function Profile() {
             <p className="text-slate-300 mb-2"> Lahore, Pakistan</p>
           </div>
           <h2 className="text-slate-300 text-1xl mt-1 mb-3">
-            Completed matriculation with science group, developing strong analytical and problem-solving skills that would later support my programming journey.
+            Completed matriculation with science group, developing strong
+            analytical and problem-solving skills that would later support my
+            programming journey.
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
@@ -209,7 +236,10 @@ function Profile() {
                 onClick={() => handleToggle("matric-" + idx)}
                 style={
                   activeIndex === "matric-" + idx
-                    ? { transform: "scale(1.04)", background: "rgba(16,185,129,0.3)" }
+                    ? {
+                        transform: "scale(1.04)",
+                        background: "rgba(16,185,129,0.3)",
+                      }
                     : {}
                 }
               >

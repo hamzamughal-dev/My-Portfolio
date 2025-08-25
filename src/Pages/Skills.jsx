@@ -92,6 +92,8 @@ export default function Skills() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}       // 👈 changed from animate
+          viewport={{ once: false }}
           className="relative text-5xl sm:text-6xl font-extrabold mb-12 text-gradient pt-32 pb-3 tracking-wide"
         >
           My Skills
@@ -107,6 +109,7 @@ export default function Skills() {
               key={idx}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: idx * 0.1 }}
               viewport={{ once: false, margin: "-100px"  }}
               className="glass-effect p-6 rounded-2xl shadow-lg 
