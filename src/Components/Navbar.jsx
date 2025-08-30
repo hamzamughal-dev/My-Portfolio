@@ -14,6 +14,7 @@ function Navbar() {
         { name: "Profile", path: "/profile" },
         { name: "Skills", path: "/skills" },
         { name: "Projects", path: "/projects" },
+        { name: "Certifications", path: "/certifications" },
     ];
 
     // Handle scroll effect

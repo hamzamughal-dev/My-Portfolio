@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Skills from "./Pages/Skills";
 import Projects from "./Pages/Projects";
+import Certifications from "./Components/Certifications";
 
 // ScrollToTop component to handle scroll position on route changes
 function ScrollToTop() {
@@ -35,6 +36,7 @@ function AppContent() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/certifications" element={<Certifications />} />
         </Routes>
       </main>
 
