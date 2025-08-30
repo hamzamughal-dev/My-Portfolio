@@ -6,7 +6,7 @@ import dl from "../assets/images/DL_Certificate.jpg";
 // Sample certifications data
 const certifications = [
   {
-    title: "React Developmer Certificate",
+    title: "React Developer Certificate",
     image: reactimg, // put your image path here
     issuer: "Frontend Masters",
     date: "2025",

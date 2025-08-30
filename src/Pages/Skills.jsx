@@ -84,15 +84,15 @@ export default function Skills() {
 
   return (
     <div
-    key="skills-container"
-    className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32">
+      key="skills-container"
+      className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32"
+    >
       <main className="flex-1 flex flex-col items-center justify-start max-w-6xl mx-auto">
         {/* Animated Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, y: 0 }}       // 👈 changed from animate
           viewport={{ once: false }}
           className="relative text-5xl sm:text-6xl font-extrabold mb-12 text-gradient pt-32 pb-3 tracking-wide"
         >
@@ -101,7 +101,6 @@ export default function Skills() {
           {/* <span className="absolute left-1/2  -bottom-3 w-40 h-1 bg-emerald-400 rounded-full -translate-x-1/2 shadow-[0_0_15px_#34d399]"></span> */}
         </motion.h1>
 
-
         {/* Animated Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full">
           {skills.map((skill, idx) => (
@@ -109,9 +108,8 @@ export default function Skills() {
               key={idx}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              viewport={{ once: false, margin: "-100px"  }}
+              viewport={{ once: false, margin: "-100px" }}
               className="glass-effect p-6 rounded-2xl shadow-lg 
               transition-all duration-500 hover:scale-105 hover:bg-emerald-500/10 cursor-pointer"
               onMouseEnter={() => !isTouch && setHoveredIndex(idx)}
