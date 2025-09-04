@@ -31,6 +31,22 @@ export default function Skills() {
   const [progress, setProgress] = useState(Array(skills.length).fill(0));
   const [isTouch, setIsTouch] = useState(false);
 
+  // Reset scroll position when component mounts
+  useEffect(() => {
+    // Initial reset
+    window.scrollTo(0, 0);
+    
+    // Handle mobile viewport adjustments
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+      // Additional reset for mobile browsers
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);

@@ -16,7 +16,12 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Force a reset of scroll position and viewport
     window.scrollTo(0, 0);
+    // Small delay to ensure proper content rendering on mobile
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   }, [pathname]);
 
   return null;
