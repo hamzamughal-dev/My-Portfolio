@@ -137,7 +137,7 @@ function Profile() {
         >
           <div className="text-4xl font-semibold mb-2 flex items-center">
             <GraduationCap size={60} className="inline mr-2 text-emerald-400" />
-            Intermediate in Computer Science
+            Fsc Pre-Engineering
           </div>
           <p className="text-slate-300 pt-2 pb-2">
             Government College University, Lahore
@@ -189,7 +189,7 @@ function Profile() {
           className="glass-effect p-6 rounded-2xl shadow-lg 
         transition duration-300 hover:bg-emerald-500/10 hover:scale-[1.02] cursor-pointer"
           initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}              // 👈 added
+          animate={{ opacity: 1, y: 0 }}              
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: false, margin: "-100px" }}
