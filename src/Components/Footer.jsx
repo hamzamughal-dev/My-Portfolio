@@ -36,7 +36,7 @@ function Footer() {
                     <FaGithub className="text-3xl sm:text-4xl" />
                 </a>
                 <a
-                    href="https://linkedin.com/in/muhammad-hamza-mughal-b83944377"
+                    href="https://www.linkedin.com/in/hamzamughal12/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-emerald-400 cursor-pointer"
