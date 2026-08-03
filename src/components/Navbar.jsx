@@ -17,7 +17,6 @@ function Navbar() {
         { name: "Certifications", path: "/certifications" },
     ];
 
-    // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
@@ -26,7 +25,6 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         setIsOpen(false);
     }, [location.pathname]);
