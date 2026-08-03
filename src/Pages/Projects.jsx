@@ -1,124 +1,8 @@
 import React from "react";
-import ProjectCard from "../Components/ProjectCard";
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb, SiExpress, SiVite, SiPython, SiPytorch } from "react-icons/si";
+import ProjectCard from "../components/ProjectCard";
 import { motion } from "framer-motion";
+import { projectsData } from "../constants";
 
-const projects = [
-  {
-    title: "AgriBot – Smart Agriculture System",
-    description:
-      "An AI-powered smart agriculture system designed to assist farmers by analyzing crop images and providing intelligent insights. AgriBot uses a deep learning-based image classification model to identify crop conditions or diseases and supports data-driven decision-making. The system focuses on improving crop productivity, early issue detection, and promoting technology-driven sustainable farming practices.",
-    tech: [
-      <>
-        <FaReact className="inline text-cyan-400" /> React
-      </>,
-      <>
-        <SiTailwindcss className="inline text-sky-400" /> Tailwind CSS
-      </>,
-      <>
-        <FaNodeJs className="inline text-green-500" /> Node.js
-      </>,
-      <>
-        <SiExpress className="inline text-gray-300" /> Express
-      </>,
-      <>
-        <SiMongodb className="inline text-green-500" /> MongoDB
-      </>,
-      <>
-        <SiPython className="inline text-yellow-400" /> Python
-      </>,
-      <>
-        <SiPytorch className="inline text-red-500" /> PyTorch
-      </>,
-    ],
-    github: "https://github.com/hamzamughal-dev/agribot",
-    demo: "#",
-  },
-  {
-    title: "Custom Dashboard",
-    description:
-      "A customizable dashboard built with React for productivity and analytics. It includes widgets such as weather updates, notes, and to-do lists. The dashboard is designed with a modular structure, making it easy to expand, personalize, and maintain a clean, professional UI.",
-    tech: [
-      <>
-        <FaReact className="inline text-cyan-400" /> React
-      </>,
-      <>
-        <SiTailwindcss className="inline text-sky-400" /> Tailwind CSS
-      </>,
-      <>
-        <SiExpress className="inline text-gray-300" /> Express
-      </>,
-      <>
-        <FaNodeJs className="inline text-green-500" /> Node.js
-      </>,
-      <>
-        <SiMongodb className="inline text-green-500" /> MongoDB
-      </>,
-    ],
-    github: "https://github.com/hamzamughal-dev/Custom-Dashboard",
-    demo: "#",
-  },
-  {
-    title: "E-Commerce Website (Full Stack)",
-    description:
-      "A MERN-based e-commerce platform where users can create accounts, log in securely, and perform full CRUD operations on products (add, update, delete). It includes authentication, a shopping cart system, product search, and a dynamic product catalog. This project demonstrates full-stack integration with MongoDB, Express, React, and Node.js, along with responsive UI design using Tailwind CSS.",
-    tech: [
-      <>
-        <SiMongodb className="inline text-green-500" /> MongoDB
-      </>,
-      <>
-        <SiExpress className="inline text-gray-300" /> Express
-      </>,
-      <>
-        <FaReact className="inline text-cyan-400" /> React
-      </>,
-      <>
-        <FaNodeJs className="inline text-green-500" /> Node.js
-      </>,
-      <>
-        <SiTailwindcss className="inline text-sky-400" /> Tailwind CSS
-      </>,
-    ],
-    github: "https://github.com/yourusername/ecommerce-fullstack",
-    demo: "#",
-  },
-  {
-    title: "Clock App",
-    description:
-      "A digital clock application built with React that displays real-time updates and includes multiple features such as a stopwatch, countdown timer, alarm system, and world clock. Optimized with Vite for fast performance, this app demonstrates functional components, hooks, and precise state management.",
-    tech: [
-      <>
-        <FaReact className="inline text-cyan-400" /> React
-      </>,
-      <>
-        <SiVite className="inline text-purple-400" /> Vite
-      </>,
-      <>
-        <SiTailwindcss className="inline text-sky-400" /> Tailwind CSS
-      </>,
-    ],
-    github: "https://github.com/yourusername/clock-app",
-    demo: "#",
-  },
-  {
-    title: "Shopping Mart Web App (Frontend)",
-    description:
-      "A responsive shopping mart web application frontend featuring product listing, search functionality, and a user-friendly interface. Built with React and Tailwind CSS, it focuses on smooth navigation, reusable UI components, and an engaging shopping experience.",
-    tech: [
-      <>
-        <FaReact className="inline text-cyan-400" /> React
-      </>,
-      <>
-        <SiTailwindcss className="inline text-sky-400" /> Tailwind CSS
-      </>,
-    ],
-    github: "https://github.com/hamzamughal-dev/Shopping-mart",
-    demo: "#",
-  },
-];
-
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -185,32 +69,27 @@ const descriptionVariants = {
 function Projects() {
   return (
     <div className="min-h-screen gradient-bg text-white px-6 py-16 pb-32">
-      {/* Animated Heading */}
       <motion.h2
         variants={headingVariants}
         initial="hidden"
-        animate="visible"
         whileInView="visible"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         className="relative text-5xl flex justify-center items-center sm:text-6xl font-extrabold mb-6 text-gradient pt-20 pb-4 tracking-wide"
       >
         My Projects
       </motion.h2>
 
-      {/* Animated Description */}
       <motion.p
         variants={descriptionVariants}
         initial="hidden"
         whileInView="visible"
-        animate="visible"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         className="text-slate-300 text-center max-w-2xl mx-auto mb-14 text-lg"
       >
         A showcase of my development skills and techniques. These projects
         highlight my journey as a Frontend and MERN stack developer.
       </motion.p>
 
-      {/* Animated Projects Grid */}
       <motion.div
         key="projects-container"
         variants={containerVariants}
@@ -219,7 +98,7 @@ function Projects() {
         viewport={{ once: false, margin: "-100px" }}
         className="grid grid-cols-1 gap-10 max-w-6xl mx-auto"
       >
-        {projects.map((project, idx) => (
+        {projectsData.map((project, idx) => (
           <motion.div
             key={idx}
             variants={itemVariants}
@@ -245,7 +124,6 @@ function Projects() {
         ))}
       </motion.div>
 
-      {/* Decorative Elements */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}

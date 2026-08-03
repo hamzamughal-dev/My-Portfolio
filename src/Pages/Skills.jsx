@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../Components/Footer";
+import Footer from "../components/Footer";
 import { FaCode } from "react-icons/fa";
-import { motion } from "framer-motion"; // 👈 Import Framer Motion
+import { motion } from "framer-motion";
 
 import {
   FaJs,
@@ -12,13 +12,13 @@ import {
   FaCss3Alt,
   FaDatabase,
 } from "react-icons/fa";
-import { SiExpress, SiTailwindcss } from "react-icons/si";
+import { SiExpress, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 const skills = [
   { name: "JavaScript", level: "Expert", percent: 90, icon: <FaJs size={40} color="#f7df1e" /> },
   { name: "ReactJS", level: "Advanced", percent: 75, icon: <FaReact size={40} color="#61dafb" /> },
+  { name: "NextJS", level: "Intermediate", percent: 65, icon: <SiNextdotjs size={40} color="#ffffff" /> },
   { name: "NodeJS", level: "Advanced", percent: 75, icon: <FaNodeJs size={40} color="#68a063" /> },
-  { name: "ExpressJS", level: "Advanced", percent: 75, icon: <SiExpress size={40} color="#ffffff" /> },
   { name: "MongoDB", level: "Intermediate", percent: 60, icon: <FaDatabase size={40} color="#4db33d" /> },
   { name: "HTML/CSS", level: "Expert", percent: 96, icon: <><FaHtml5 size={30} color="#e34f26" /><FaCss3Alt size={30} color="#264de4" /></> },
   { name: "TailwindCSS", level: "Advanced", percent: 80, icon: <SiTailwindcss size={40} color="#38bdf8" /> },
@@ -31,20 +31,8 @@ export default function Skills() {
   const [progress, setProgress] = useState(Array(skills.length).fill(0));
   const [isTouch, setIsTouch] = useState(false);
 
-  // Reset scroll position when component mounts
   useEffect(() => {
-    // Initial reset
     window.scrollTo(0, 0);
-    
-    // Handle mobile viewport adjustments
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-      // Additional reset for mobile browsers
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }, 100);
-
-    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -104,7 +92,6 @@ export default function Skills() {
       className="flex flex-col min-h-screen gradient-bg text-white px-6 py-12 pb-32"
     >
       <main className="flex-1 flex flex-col items-center justify-start max-w-6xl mx-auto">
-        {/* Animated Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,11 +100,8 @@ export default function Skills() {
           className="relative text-5xl sm:text-6xl font-extrabold mb-12 text-gradient pt-32 pb-3 tracking-wide"
         >
           My Skills
-          {/* Glowing underline */}
-          {/* <span className="absolute left-1/2  -bottom-3 w-40 h-1 bg-emerald-400 rounded-full -translate-x-1/2 shadow-[0_0_15px_#34d399]"></span> */}
         </motion.h1>
 
-        {/* Animated Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full">
           {skills.map((skill, idx) => (
             <motion.div
@@ -132,24 +116,18 @@ export default function Skills() {
               onMouseLeave={() => handleMouseLeave(idx)}
               onClick={() => handleClick(idx)}
             >
-              {/* Skill Icon */}
               <div className="flex justify-center mb-4">
                 <div className="p-4 bg-emerald-500/20 rounded-full">
                   {skill.icon}
                 </div>
               </div>
-
-              {/* Skill Name */}
               <h3 className="text-2xl font-bold text-center mb-2 text-emerald-400">
                 {skill.name}
               </h3>
-
-              {/* Skill Level */}
               <p className="text-center text-slate-300 mb-4">
                 {skill.level}
               </p>
 
-              {/* Progress Bar */}
               <div className="w-full bg-slate-700/50 rounded-full h-3 mb-2">
                 <div
                   className="accent-gradient h-3 rounded-full transition-all duration-1000 ease-out"
@@ -157,7 +135,6 @@ export default function Skills() {
                 ></div>
               </div>
 
-              {/* Percentage */}
               <p className="text-center text-amber-400 font-semibold">
                 {progress[idx]}%
               </p>
@@ -165,7 +142,6 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Additional Info */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

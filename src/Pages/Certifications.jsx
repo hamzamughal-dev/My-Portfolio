@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import reactimg from "../assets/images/React_Certificate.jpg";
-import prompt from "../assets/images/Prompt_Engineering .jpg";
+import prompt from "../assets/images/Prompt_Engineering.jpg";
 import dl from "../assets/images/DL_Certificate.jpg";
-// Sample certifications data
 const certifications = [
   {
     title: "React Developer Certificate",
-    image: reactimg, // put your image path here
+    image: reactimg,
     issuer: "Frontend Masters",
     date: "2025",
   },
@@ -25,7 +24,6 @@ const certifications = [
   },
 ];
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -84,7 +82,6 @@ const descriptionVariants = {
 function Certifications() {
   return (
     <div className="min-h-screen gradient-bg text-white px-6 py-16 pb-32">
-      {/* Heading */}
       <motion.h2
         variants={headingVariants}
         initial="hidden"
@@ -96,7 +93,6 @@ function Certifications() {
         My Certifications
       </motion.h2>
 
-      {/* Description */}
       <motion.p
         variants={descriptionVariants}
         initial="hidden"
@@ -109,7 +105,6 @@ function Certifications() {
         in web development and related technologies.
       </motion.p>
 
-      {/* Certifications Grid */}
       <motion.div
         key="certifications-container"
         variants={containerVariants}
@@ -124,7 +119,7 @@ function Certifications() {
             variants={itemVariants}
             whileHover={{
               scale: 1.02,
-              transition: { duration: 0.3 } // quicker hover animation
+              transition: { duration: 0.3 }
             }}
             whileInView={{
               opacity: 1,
@@ -155,7 +150,6 @@ function Certifications() {
         ))}
       </motion.div>
 
-      {/* Decorative Elements */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}

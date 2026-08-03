@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, Download, Sparkles } from "lucide-react";
-import CV from "../assets/Docs/Muhammad_Hamza-Mughal_CV.pdf";
+import CV from "../assets/docs/Muhammad_Hamza-Mughal_CV.pdf";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,6 @@ function Navbar() {
                     : "bg-transparent"
                 }`}
         >
-            {/* Subtle animated background pattern */}
             <motion.div
                 className="absolute inset-0 opacity-30"
                 animate={{
@@ -54,7 +53,6 @@ function Navbar() {
 
             <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
-                    {/* Refined Logo */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -93,7 +91,6 @@ function Navbar() {
                         </div>
                     </motion.div>
 
-                    {/* Premium Desktop Navigation */}
                     <div className="hidden lg:flex items-center">
                         <div className="flex items-center space-x-1 p-1 rounded-2xl bg-slate-900/30 backdrop-blur-sm border border-slate-700/20">
                             {navLinks.map((link, i) => {
@@ -117,7 +114,6 @@ function Navbar() {
                                                 {link.name}
                                             </span>
 
-                                            {/* Active state background */}
                                             {isActive && (
                                                 <motion.div
                                                     className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-amber-500/20 rounded-xl border border-emerald-500/20"
@@ -132,7 +128,6 @@ function Navbar() {
                                                 />
                                             )}
 
-                                            {/* Hover background */}
                                             {!isActive && (
                                                 <motion.div
                                                     className="absolute inset-0 bg-slate-700/40 rounded-xl opacity-0 group-hover:opacity-100"
@@ -148,7 +143,6 @@ function Navbar() {
                         </div>
                     </div>
 
-                    {/* Enhanced CTA Button */}
                     <div className="hidden lg:flex items-center">
                         <motion.a
                             href={CV}
@@ -167,7 +161,6 @@ function Navbar() {
                         </motion.a>
                     </div>
 
-                    {/* Elegant Mobile Menu Button */}
                     <motion.button
                         initial={{ opacity: 0, rotate: -90 }}
                         animate={{ opacity: 1, rotate: 0 }}
@@ -189,7 +182,6 @@ function Navbar() {
                 </div>
             </div>
 
-            {/* Refined Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -232,7 +224,6 @@ function Navbar() {
                                 );
                             })}
 
-                            {/* Mobile CTA */}
                             <motion.div
                                 className="pt-6 border-t border-slate-700/30 mt-6"
                                 initial={{ opacity: 0, y: 20 }}

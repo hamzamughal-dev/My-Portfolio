@@ -1,27 +1,20 @@
-import './App.css'
-import "./index.css"
+import "./index.css";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Home from "./Pages/Home";
-import Profile from "./Pages/Profile";
-import Skills from "./Pages/Skills";
-import Projects from "./Pages/Projects";
-import Certifications from "./Components/Certifications";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
+import Certifications from "./pages/Certifications";
 
-// ScrollToTop component to handle scroll position on route changes
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Force a reset of scroll position and viewport
-    window.scrollTo(0, 0);
-    // Small delay to ensure proper content rendering on mobile
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
   return null;
@@ -45,7 +38,6 @@ function AppContent() {
         </Routes>
       </main>
 
-      {/* Show Footer only if not Home */}
       {location.pathname !== "/" && <Footer />}
     </div>
   );

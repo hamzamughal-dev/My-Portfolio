@@ -8,11 +8,9 @@ function Footer() {
         const alreadyAnimated = localStorage.getItem("footerAnimated");
 
         if (!alreadyAnimated) {
-            // First visit → play animation
             setTimeout(() => setIsVisible(true), 100);
             localStorage.setItem("footerAnimated", "true");
         } else {
-            // Skip animation for next visits
             setIsVisible(true);
         }
     }, []);

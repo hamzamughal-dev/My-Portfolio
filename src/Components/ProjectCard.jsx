@@ -7,16 +7,13 @@ function ProjectCard({ title, description, tech, github, demo }) {
       className="glass-effect rounded-2xl p-6 shadow-lg 
       transition duration-300 hover:scale-[1.02] hover:bg-emerald-500/10"
     >
-      {/* Title */}
       <div className="flex items-center mb-4">
         <Code2 className="text-emerald-400 mr-2" size={30} />
         <h3 className="text-2xl font-semibold">{title}</h3>
       </div>
 
-      {/* Description */}
       <p className="text-slate-300 mb-3">{description}</p>
 
-      {/* Tech Stack */}
       <div className="flex flex-wrap gap-2 mb-4">
         {tech.map((item, idx) => (
           <span
@@ -28,7 +25,6 @@ function ProjectCard({ title, description, tech, github, demo }) {
         ))}
       </div>
 
-      {/* Links */}
       <div className="flex gap-4">
         {github && (
           <a
